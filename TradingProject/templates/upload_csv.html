@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <title>Upload CSV</title>
+</head>
+<body>
+  <h1>Upload CSV</h1>
+
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+      <label for="file">CSV File:</label>
+      <input type="file" id="file" name="file">
+    </div>
+    <div>
+      <label for="timeframe">Timeframe:</label>
+      <input type="number" id="timeframe" name="timeframe">
+    </div>
+    <div>
+      <button type="submit">Upload</button>
+    </div>
+  </form>
+
+  <form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <input type="file" name="csv_file">
+      <label>
+          <input type="text" name="timeframe">
+      </label>
+      <button type="submit">Upload</button>
+</form>
+
+
+  {% if file_url %}
+    <p>
+      <a href="{{ file_url }}" download>Download JSON File</a>
+    </p>
+  {% endif %}
+
+</body>
+</html>
+
+
